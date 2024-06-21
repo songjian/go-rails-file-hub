@@ -40,6 +40,10 @@ GOOS=windows GOARCH=amd64 go build -o edge.exe
 err = watcher.Add("./watch_files") // 换成你要监视的目录
 ```
 
+设置客户端key
+
+在服务端后台新建客户端，获取key，然后在客户端可执行文件所在目录下创建`key.txt`文件，文件内容为key值
+
 ## CHANGES
 
 - 2024-06-21: 实现监视目录添加和删除文件时文件信息上报到服务器
