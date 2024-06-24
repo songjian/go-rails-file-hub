@@ -8,6 +8,7 @@ ActiveAdmin.register Client do
     column :api_key
     column :active
     column :description
+    column :online
     actions
   end
 
@@ -15,6 +16,7 @@ ActiveAdmin.register Client do
   filter :api_key
   filter :active
   filter :description
+  filter :online
 
   form do |f|
     f.inputs do

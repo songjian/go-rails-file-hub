@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_21_065412) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_24_063704) do
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
     t.text "body"
@@ -44,6 +44,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_065412) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "online", default: false
   end
 
   create_table "remote_files", force: :cascade do |t|

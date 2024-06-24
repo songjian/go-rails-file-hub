@@ -5,6 +5,11 @@ module ApplicationCable
 
     def connect
       self.current_client = find_verified_client
+      current_client.update(online: true) if current_client
+    end
+
+    def disconnect
+      current_client.update(online: false) if current_client
     end
 
     private
