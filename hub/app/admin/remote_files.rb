@@ -11,7 +11,9 @@ ActiveAdmin.register RemoteFile do
     column :file_created_at
     column :last_modified
     column :client
-    actions
+    actions defaults: true do |remote_file|
+      link_to 'Delete File', delete_file_admin_remote_file_path(remote_file), method: :delete, title: 'Delete Remote File', data: { confirm: 'Are you sure you want to delete the remote file?' }
+    end 
   end
 
   filter :filename
@@ -30,5 +32,13 @@ ActiveAdmin.register RemoteFile do
       f.input :client
     end
     f.actions
+  end
+
+  # Delete remote file
+  member_action :delete_file, method: :delete do
+    @remote_file = RemoteFile.find(params[:id])
+    @remote_file.delete_file
+
+    redirect_to admin_remote_files_path
   end
 end
